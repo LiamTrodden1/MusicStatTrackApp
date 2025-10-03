@@ -1,6 +1,51 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 2rem;
-  background-color: #f9f9f9;
-  color: #333;
+*{
+  margin:0;
+  padding:0;
+}
+
+.navbar {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  height: 60px;
+  cursor: pointer;
+}
+
+.background {
+    background: teal;
+    background-blend-mode: darken;
+    background-size: cover;
+}
+
+.navList {
+    width: 70%;
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    list-style: none;
+}
+
+.navList li{
+  flex:1;
+}
+
+.navList button {
+  background:teal;
+  color: white;
+  width: 100%;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.navList button:hover {
+  background-color: orange;
+}
+
+.rightNav {
+  display: flex;
+  align-items: center;
 }
