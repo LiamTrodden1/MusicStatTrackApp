@@ -3,6 +3,7 @@
   padding:0;
 }
 
+/*  Navigation Menu buttons */
 .navbar {
   display: flex;
   align-items: stretch;
@@ -45,7 +46,26 @@
   background-color: orange;
 }
 
-.rightNav {
-  display: flex;
-  align-items: center;
+
+/* Titles Style */
+h2 {
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  color: black;
+  margin-top: 30px;
 }
+
+
+/* Total albums listened to */
+#totalAlbums {
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+  padding: 10px 0px;
+}
+
+
+
+
+
