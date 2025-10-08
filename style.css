@@ -3,6 +3,7 @@
   padding:0;
 }
 
+/* Index.html */
 /*  Navigation Menu buttons */
 .navbar {
   display: flex;
@@ -68,4 +69,80 @@ h2 {
 
 
 
+/* Albums.html */
+/* Albums Search bar*/
+.searchAlbum {
+  background-color: lightgray;
+  padding: 15px 30px;
+}
+.search1 {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  margin-top: 20px;
+}
+#searchInput1 {
+  font-family: 'Nunito', sans-serif;
+  width: 400px;
+  padding: 5px 10px;
+}
+#searchButton1 {
+  background-color: teal;
+  color: white;
+  padding: 5px 10px;
+}
+#searchButton1:hover {
+  border-color: grey;
+  outline: grey;
+  background-color: orange;
+}
 
+
+
+
+/* Login */
+/* Username and password inputs */
+.username{
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  margin-top: 20px;
+}
+#usernameInput{
+  font-family: 'Nunito', sans-serif;
+  width: 400px;
+  padding: 5px 10px;
+}
+
+.password{
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  margin-top: 20px;
+}
+#passwordInput{
+  font-family: 'Nunito', sans-serif;
+  width: 400px;
+  padding: 5px 10px;
+}
+
+.loginButton{
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  margin-top: 20px;
+}
+#loginButton{
+  background-color: teal;
+  color: white;
+  padding: 5px 10px;
+  width: 425px;
+  padding: 5px 10px;
+}
+#loginButton:active{
+  background-color: orange;
+}
+#loginButton.flash{
+  background-color: orange;
+  transition: 0.5s;
+}

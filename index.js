@@ -11,3 +11,4 @@ const totalAlbums = albums.length;
 // display on page
 document.getElementById("totalAlbums").textContent = totalAlbums;
 
+
