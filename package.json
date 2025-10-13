@@ -1,0 +1,29 @@
+{
+  "name": "musicstattrackapp",
+  "version": "1.0.0",
+  "description": "Spotify is a popular music streaming application that is used by many people. One well known feature of Spotify is Spotify wrapped. Spotify wrapped is a statistical summary of your listening habits throughout a year. With the recent resurgence of music media formats like vinyl, I would like to combine the statistical fact gathering of Spotify’s Spotify wrapped with physical media in mind, to produce a mobile application that can track statistics of physical media formats efficiently. Due to this project focusing on physical media, the mobile application will focus primarily on albums not songs, as physical media is most common in an album format. Obviously, these statistics will not be as truthful as Spotify, because the tracked statistics rely on the users honesty with the application to not lie about what they have listened to, and the app can’t tell if the user actually listened to the album.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiamTrodden1/MusicStatTrackApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LiamTrodden1/MusicStatTrackApp/issues"
+  },
+  "homepage": "https://github.com/LiamTrodden1/MusicStatTrackApp#readme",
+  "dependencies": {
+    "firebase": "^12.4.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.9"
+  }
+}
