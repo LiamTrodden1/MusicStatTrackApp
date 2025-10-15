@@ -40,6 +40,10 @@ document.getElementById("searchButton1").addEventListener("click", async () => {
 
         const albums = searchData.albums.items;
 
+
+
+        const container = document.getElementById("albumResults");
+
         albums.forEach(album => {
             const albumInfo = {
                 name: album.name,
@@ -51,10 +55,56 @@ document.getElementById("searchButton1").addEventListener("click", async () => {
                 images: album.images[0]?.url
 
             };
-            console.log(albumInfo)
-        })
 
-        // console.log(searchData);
+            console.log(albumInfo)
+
+            // wrapper for albums
+            const albumDiv = document.createElement("div");
+            albumDiv.classList.add("album");
+
+            // album title
+            const title = document.createElement("h3");
+            title.textContent = albumInfo.name;
+
+            // album cover
+            const img = document.createElement("img");
+            img.src = albumInfo.images;
+            img.height = 200;
+            img.width = 200;
+
+            // artists
+            const artist = document.createElement("p");
+            artist.textContent = `Artist(s): ${albumInfo.artists}`;
+            
+            // release date
+            const release = document.createElement("p");
+            release.textContent = `Released: ${albumInfo.releaseDate}`;
+
+            // album type
+            const type = document.createElement("p");
+            type.textContent = `Type: ${albumInfo.albumType}`;
+
+            // total tracks
+            const tracks = document.createElement("p");
+            tracks.textContent = `Tracks: ${albumInfo.totalTracks}`;
+
+            // spotify link
+            const link = document.createElement("a");
+            link.href = `https://open.spotify.com/album/${album.id}`;
+            link.target = "_blank";
+            link.textContent = "Open in Spotify";
+
+            // append to albumDiv
+            albumDiv.appendChild(title);
+            albumDiv.appendChild(img);
+            albumDiv.appendChild(artist);
+            albumDiv.appendChild(release);
+            albumDiv.appendChild(type);
+            albumDiv.appendChild(tracks);
+            albumDiv.appendChild(link);
+
+            container.appendChild(albumDiv);
+        })
     }
     catch (error){
         console.error("Error searching album", error);
