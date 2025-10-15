@@ -15,13 +15,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/LiamTrodden1/MusicStatTrackApp/issues"
   },
   "homepage": "https://github.com/LiamTrodden1/MusicStatTrackApp#readme",
   "dependencies": {
-    "firebase": "^12.4.0"
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase": "^12.4.0",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "vite": "^7.1.9"
