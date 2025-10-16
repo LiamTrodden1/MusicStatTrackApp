@@ -8,12 +8,22 @@ const searchButton = document.getElementById("searchButton1");
 const searchInput = document.getElementById("searchInput1");
 const resultsContainer = document.getElementById("albumResults");
 
-// Handle search button click
-searchButton.addEventListener("click", async () => {
-    const albumName = searchInput.value.trim();
+// Search submit button 
+//searchButton.addEventListener("click", async () => {
+//    const albumName = searchInput.value.trim();
+//
+//    if (!albumName) {
+//        alert("Please enter an album name!");
+//    return;
+//  }
 
-    if (!albumName) {
-        alert("Please enter an album name!");
+// Search when Enter is pressed
+searchInput.addEventListener("keydown", async (event) => {
+  if (event.key !== "Enter") return; // only trigger on Enter
+
+  const albumName = searchInput.value.trim();
+  if (!albumName) {
+    alert("Please enter an album name!");
     return;
   }
 
@@ -29,7 +39,7 @@ try {
     const accessToken = tokenData.access_token;
 
     // Search Spotify for album
-    const searchUrl = `https://api.spotify.com/v1/search?q=${encodeURIComponent(albumName)}&type=album&limit=1`;
+    const searchUrl = `https://api.spotify.com/v1/search?q=${encodeURIComponent(albumName)}&type=album&limit=5`;
 
     const searchResponse = await fetch(searchUrl, {
         headers: { Authorization: `Bearer ${accessToken}` }
@@ -81,4 +91,21 @@ try {
   } catch (error) {
     console.error("Error searching album:", error);
   }
+
+    // Hover effect for full visibility
+    const albumDivs = Array.from(resultsContainer.querySelectorAll(".album"));
+    albumDivs.forEach((album, i) => {
+    // Reverse z-index: first card at bottom, last card on top
+    album.style.zIndex = i + 1;
+
+    album.addEventListener("mouseenter", () => {
+        album.style.transform = "translateY(-10px) scale(1.02)";
+        album.style.zIndex = 100; // bring hovered card to top temporarily
+    });
+
+    album.addEventListener("mouseleave", () => {
+        album.style.transform = "translateY(0) scale(1)";
+        album.style.zIndex = i + 1; // restore original stack order
+    });
+    });
 });
