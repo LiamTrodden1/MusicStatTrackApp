@@ -81,6 +81,7 @@ try {
         <p><strong>Tracks:</strong> ${albumInfo.totalTracks}</p>
         <a href="${albumInfo.link}" target="_blank">Open in Spotify</a>
     </div>
+    <button class="addButton">Add Album</button>
     `;
 
 
