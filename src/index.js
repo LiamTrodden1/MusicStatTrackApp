@@ -56,13 +56,15 @@ loginButton.addEventListener("click", () => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      console.log("Login Successful")
-      localStorage.setItem("loggedIn", "true")
+      console.log("Login Successful");
+      console.log("UserID", user.uid);
+      localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("userUID", user.uid);
       window.location.href = "dashboard.html";
     })
     .catch((error) => {
-      alert("Account not Found")
-      console.log("Login Failed")
+      alert("Account not Found");
+      console.log("Login Failed");
     }) 
 
   // Clear inputs
