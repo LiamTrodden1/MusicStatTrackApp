@@ -115,7 +115,7 @@ searchInput.addEventListener("keydown", async (event) => {
                 // store in firestore
                 const albumStore = doc(db, "users", userUID, "albums", albumInfo.id);
                 
-                // chekc if albums already stored
+                // check if albums already stored
                 const existingAlbum = await getDoc(albumStore);
 
                 if (existingAlbum.exists()) {
@@ -131,6 +131,12 @@ searchInput.addEventListener("keydown", async (event) => {
                     });
                     console.log("New album stored")
                 }
+
+                // Added animation
+                albumDiv.classList.add("added");
+                setTimeout(() => {
+                    albumDiv.classList.remove("added");
+                }, 500);
             }
             catch (error) {
                 console.error("Error adding album:", error);
