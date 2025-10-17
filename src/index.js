@@ -1,11 +1,8 @@
-const loggedIn = "false";
-localStorage.setItem("loggedIn", "false");
-
 // Firebase setup
 // Import firebase nodules
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 // Your web app's Firebase configuration
 // Secrets secured in .env
@@ -19,11 +16,22 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_MEASUREMENT_ID
 };
 
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+
+// Sign user out
+try {
+  await signOut(auth);
+  console.log("User logged out successfully");
+  const loggedIn = "false";
+  localStorage.setItem("loggedIn", "false");
+  localStorage.removeItem("userUID");
+}
+catch (error){
+  console.error("Error logging out", error);
+}
 
 // submit details to login with firebase
 loginButton.addEventListener("click", () => {
