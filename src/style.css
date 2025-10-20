@@ -289,6 +289,33 @@ body {
 
 
 
+/* *****group albums and myAlbums pages***** */
+.collectionNav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.collectionNav .tab {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.collectionNav .tab:hover {
+  background: #f0f0f0;
+}
+
+.collectionNav .active {
+  background: teal;
+  color: white;
+}
+
+/* myAlbums.html */
 
 
 
