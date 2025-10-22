@@ -1,5 +1,5 @@
 // Firebase setup
-import { getFirestore, collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
@@ -24,32 +24,54 @@ if (localStorage.getItem("loggedIn") !== "true") {
     window.location.href = "index.html";
 }
 
+// ✅ Grab the album container from the DOM
+const albumContainer = document.querySelector(".albumContainer");
+
 async function getAlbums() {
     try {
-        // get userID
         const userID = localStorage.getItem("userUID");
         if (!userID) {
             console.error("No user ID found in localStorage");
+            albumContainer.innerHTML = "<p>No user ID found.</p>";
             return;
         }
 
-        // Access Firestore route to stored albums
         const albumsRef = collection(db, "users", userID, "albums");
         const snapshot = await getDocs(albumsRef);
 
+        albumContainer.innerHTML = ""; // clear “Loading…” message
+
         if (snapshot.empty) {
-            console.log("No albums found for this user");
+            albumContainer.innerHTML = "<p>No albums found yet.</p>";
             return;
         }
 
-        snapshot.forEach((doc) => {
-            console.log("Album:", doc.id, doc.data());
+        snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+
+            // Create the card
+            const card = document.createElement("div");
+            card.classList.add("albumCard");
+
+            card.innerHTML = `
+                <img src="${data.image || 'default-cover.png'}" alt="${data.name}" />
+                <h3 class="albumTitle">${data.name}</h3>
+                <p class="albumArtist">${data.artists}</p>
+                <p class="albumInfo">
+                    <span>${data.albumType}</span> • 
+                    <span>${data.totalTracks} tracks</span> • 
+                    <span>${data.releaseDate}</span>
+                </p>
+                <p class="listenCount">Listened ${data.listenCount || 0} times</p>
+                <a href="${data.link}" target="_blank" class="spotifyLink">Open in Spotify</a>
+            `;
+
+            albumContainer.appendChild(card);
         });
-    } 
-    catch (error) {
+    } catch (error) {
         console.error("Error reading albums:", error);
+        albumContainer.innerHTML = "<p>Failed to load albums.</p>";
     }
 }
 
 getAlbums();
-
