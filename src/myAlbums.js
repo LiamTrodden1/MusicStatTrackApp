@@ -23,6 +23,40 @@ if (localStorage.getItem("loggedIn") !== "true") {
     window.location.href = "index.html";
 }
 
+// Confirm remove message
+function showConfirmPopup(message) {
+    return new Promise((resolve) => {
+        // Create overlay
+        const overlay = document.createElement("div");
+        overlay.classList.add("confirmOverlay");
+
+        // Create popup box
+        const popup = document.createElement("div");
+        popup.classList.add("confirmPopup");
+        popup.innerHTML = `
+            <p>${message}</p>
+            <div class="confirmButtons">
+                <button class="confirmYes">Yes</button>
+                <button class="confirmNo">Cancel</button>
+            </div>
+        `;
+
+        overlay.appendChild(popup);
+        document.body.appendChild(overlay);
+
+        // Button events
+        popup.querySelector(".confirmYes").addEventListener("click", () => {
+            resolve(true);
+            overlay.remove();
+        });
+
+        popup.querySelector(".confirmNo").addEventListener("click", () => {
+            resolve(false);
+            overlay.remove();
+        });
+    });
+}
+
 // DOM Element
 const albumContainer = document.querySelector(".albumContainer");
 
@@ -55,7 +89,9 @@ async function getAlbums() {
             const card = document.createElement("div");
             card.classList.add("albumCard");
             card.innerHTML = `
-                <img src="${data.image || 'default-cover.png'}" alt="${data.name}" />
+                <a href="${data.link}" target="_blank">
+                    <img src="${data.image || 'default-cover.png'}" alt="${data.name}" />
+                </a>
                 <h3 class="albumTitle">${data.name}</h3>
                 <p class="albumArtist">${data.artists}</p>
                 <p class="albumInfo">
@@ -64,7 +100,6 @@ async function getAlbums() {
                     <span>${data.releaseDate}</span>
                 </p>
                 <p class="listenCount">Listened ${data.listenCount || 0} times</p>
-                <a href="${data.link}" target="_blank" class="spotifyLink">Open in Spotify</a>
                 <button class="removeBtn">Remove</button>
             `;
 
@@ -79,8 +114,8 @@ async function getAlbums() {
                     let currentCount = data.listenCount || 1;
                     
                     // confirm message
-                    const confirmRemove = confirm(
-                        `Do you want to remove ${data.name} from listens ?`
+                    const confirmRemove = await showConfirmPopup(
+                        `Remove <strong>${data.name}</strong> from your albums?`
                     );
 
                     // decrement if greater than 0

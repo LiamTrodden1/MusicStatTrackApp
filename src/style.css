@@ -299,20 +299,22 @@ body {
 
 .collectionNav .tab {
   text-decoration: none;
-  color: #333;
+  color: black;
   font-weight: 600;
   padding: 8px 16px;
   border-radius: 8px;
-  transition: background 0.3s;
+  border: 3px solid transparent;
+  transition: border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
 }
 
 .collectionNav .tab:hover {
-  background: #f0f0f0;
+  border-color: black;
 }
 
 .collectionNav .active {
   background: teal;
   color: white;
+  border-color: teal;
 }
 
 
@@ -325,6 +327,21 @@ body {
     padding: 20px;
 }
 
+.myAlbumsTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: teal;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 3px solid orange;
+    display: block;
+    padding-bottom: 6px;
+    margin: 20px auto;
+    text-align: center;
+    max-width: fit-content;
+}
+
+/* Album cards */
 .albumCard {
     background-color: #fff;
     border-radius: 12px;
@@ -333,56 +350,153 @@ body {
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .albumCard:hover {
     transform: translateY(-4px);
     box-shadow: 0 0 15px rgba(0,0,0,0.15);
 }
-
 .albumCard img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 10px;
 }
-
 .albumTitle {
     font-size: 1.2rem;
     font-weight: bold;
     margin: 0;
+    margin-top: 10px;
 }
-
 .albumArtist {
     color: gray;
     margin: 5px 0;
 }
-
 .albumInfo {
     font-size: 0.85rem;
     color: #555;
     margin: 5px 0;
 }
-
 .listenCount {
     font-size: 0.8rem;
     color: #777;
 }
 
-.spotifyLink {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background-color: #1DB954;
-    color: white;
+/* Spotify link */
+.albumCard a {
+    display: block;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    line-height: 0;
+}
+.albumCard img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+}
+/* Border effect */
+.albumCard a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 0 solid orange;
+    border-radius: 10px;
+    transition: border-width 0.25s ease;
+    z-index: 2;
+}
+.albumCard a:hover::after {
+    border-width: 6px;
+}
+
+/* Remove button */
+.removeBtn {
+  background-color: #e63946;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 3px 10px rgba(255, 75, 92, 0.25);
+  margin-top: 10px;
+}
+.removeBtn:hover {
+    background-color: #c92c3a;
+}
+.removeBtn:active {
+    background-color: #a8232f;
+    transform: scale(0.97);
+}
+
+/* Confirm remove popup */
+.confirmOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    animation: fadeIn 0.25s ease;
+}
+.confirmPopup {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    max-width: 320px;
+    font-family: 'Nunito', sans-serif;
+    animation: scaleIn 0.25s ease;
+}
+.confirmPopup p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+.confirmButtons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.confirmButtons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
     border-radius: 8px;
-    text-decoration: none;
     font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
 }
-
-.spotifyLink:hover {
-    background-color: #17a44c;
+.confirmYes {
+    background-color: #e63946;
+    color: white;
 }
-
-
+.confirmYes:hover {
+    background-color: #c92c3a;
+    transform: translateY(-1px);
+}
+.confirmNo {
+    background-color: #ccc;
+    color: black;
+}
+.confirmNo:hover {
+    background-color: #b3b3b3;
+    transform: translateY(-1px);
+}
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
 
 
 /* Login */
