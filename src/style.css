@@ -3,7 +3,7 @@
   padding:0;
 }
 
-/* Index.html */
+/* dashboard.html */
 /* Navigation Menu buttons */
 .navbar {
   position: fixed;
@@ -17,13 +17,26 @@
   z-index: 200;
 
 }
-
+.dashboardTitle,
+.totalAlbumsTitle,
+.mostListenedTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: teal;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 3px solid orange;
+    display: block;
+    padding-bottom: 6px;
+    margin: 20px auto;
+    text-align: center;
+    max-width: fit-content;
+}
 .background {
     background: teal;
     background-blend-mode: darken;
     background-size: cover;
 }
-
 .navList {
     width: 70%;
     flex: 1;
@@ -31,11 +44,9 @@
     align-items: stretch;
     list-style: none;
 }
-
 .navList li{
   flex:1;
 }
-
 .navList button {
   background:teal;
   color: white;
@@ -45,22 +56,9 @@
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 .navList button:hover {
   background-color: orange;
 }
-
-
-/* Titles Style */
-h2 {
-  font-family: 'Nunito', sans-serif;
-  text-align: center;
-  color: black;
-  margin-top: 20px;
-}
-
-
-
 /* Total albums listened to */
 #totalAlbums {
   font-family: 'Nunito', sans-serif;
@@ -70,6 +68,16 @@ h2 {
   padding: 10px 0px;
 }
 
+
+
+
+/* Titles Style */
+h2 {
+  font-family: 'Nunito', sans-serif;
+  text-align: center;
+  color: black;
+  margin-top: 20px;
+}
 
 
 

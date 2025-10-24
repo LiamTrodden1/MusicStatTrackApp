@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Music Stat Track App</title>
   <link rel="stylesheet" href="style.css">
@@ -18,19 +17,23 @@
     </ul>
   </nav>
 
-  <!-- Recent Listens -->
-  <h2> Most Recent Albums </h2>
+  <h2 class="dashboardTitle">Most Recent Albums</h2>
+  <div id="recentAlbums" class="recentAlbumsContainer"></div>
 
-  <!-- Display the ALbum Covers in carousel -->
+  <div class="stats">
+    <div class="statBox">
+      <h3>Total Albums</h3>
+      <p id="totalAlbums">0</p>
+    </div>
+    <div class="statBox">
+      <h3>Total Listens</h3>
+      <p id="totalListens">0</p>
+    </div>
+  </div>
 
-  <!-- Total Albums Listned To -->
-  <h2> Total Albums Listened To </h2>
-  <div id="totalAlbums"></div>
+  <h2 class="mostListenedTitle">Most Listened To</h2>
+  <div id="mostListened"></div>
 
-  <!-- Most Listened to Albums -->
-  <h2> Most Listend To </h2>
-
-  <script src="dashboard.js"></script>
+  <script type="module" src="dashboard.js"></script>
 </body>
-
 </html>

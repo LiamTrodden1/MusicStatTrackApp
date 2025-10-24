@@ -1,7 +1,7 @@
 // Firebase setup
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment} from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, serverTimestamp} from "firebase/firestore";
 
 // Secrets secured in .env
 const firebaseConfig = {
@@ -120,14 +120,16 @@ searchInput.addEventListener("keydown", async (event) => {
 
                 if (existingAlbum.exists()) {
                     await updateDoc(albumStore, {
-                        listenCount: increment(1)
+                        listenCount: increment(1),
+                        lastListened: serverTimestamp()
                     });
                     console.log("Listen Count Updated")
                 }
                 else {
                     await setDoc(albumStore, {
                         ...albumInfo,
-                        listenCount:1
+                        listenCount:1,
+                        lastListened: serverTimestamp()
                     });
                     console.log("New album stored")
                 }
