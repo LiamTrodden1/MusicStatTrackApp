@@ -3,6 +3,8 @@
 <head>
   <title>Music Stat Track App</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 </head>
 
 <body>
@@ -17,9 +19,13 @@
     </ul>
   </nav>
 
+  <!-- Title -->
   <h2 class="dashboardTitle">Most Recent Albums</h2>
+
+  <!-- Most recent albums -->
   <div id="recentAlbums" class="recentAlbumsContainer"></div>
 
+ <!-- Total listens -->
   <div class="stats">
     <div class="statBox">
       <h3>Total Albums</h3>
@@ -31,9 +37,14 @@
     </div>
   </div>
 
+   <!-- Most listened to -->
   <h2 class="mostListenedTitle">Most Listened To</h2>
   <div id="mostListened"></div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
   <script type="module" src="dashboard.js"></script>
+  
 </body>
 </html>

@@ -22,6 +22,58 @@ if (localStorage.getItem("loggedIn") !== "true") {
   window.location.href = "index.html";
 }
 
+function displayRecentAlbums(albums) {
+  const container = document.getElementById("recentAlbums");
+
+  if (!albums || albums.length === 0) {
+    container.innerHTML = "<p style='text-align:center;color:gray;'>No recent albums yet</p>";
+    return;
+  }
+
+  // Build HTML
+  container.innerHTML = albums.map(album => `
+    <div class="dashboardCard">
+      <img src="${album.image || 'placeholder.jpg'}" alt="${album.name}">
+      <p class="dashboardAlbumTitle">${album.name}</p>
+      <p class="dashboardArtist">${album.artists}</p>
+    </div>
+  `).join("");
+
+  // Wait for DOM to update, then initialize Slick
+  setTimeout(() => {
+    const $carousel = $(".recentAlbumsContainer");
+
+    if ($carousel.hasClass("slick-initialized")) {
+      $carousel.slick("unslick");
+    }
+
+    // ✅ Initialize slick
+    $carousel.slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      infinite: true,
+      arrows: true,
+      dots: false,
+      centerMode: true,
+      centerPadding: "180px",
+      autoplay: false,
+      responsive: [
+        { breakpoint: 1200, settings: { centerPadding: "120px" } },
+        { breakpoint: 768, settings: { centerPadding: "60px" } },
+        { breakpoint: 480, settings: { centerPadding: "30px", slidesToShow: 1 } }
+      ]
+    });
+
+    // ✅ Make side albums clickable to scroll
+    $carousel.on("click", ".dashboardCard", function () {
+      const index = $(this).data("slick-index");
+      $carousel.slick("slickGoTo", index);
+    });
+  }, 100);
+}
+
+
+
 async function loadDashboardData() {
   try {
     const userUID = localStorage.getItem("userUID");
@@ -68,21 +120,6 @@ async function loadDashboardData() {
   }
 }
 
-// Render recent albums
-function displayRecentAlbums(albums) {
-  const container = document.getElementById("recentAlbums");
-  container.innerHTML = albums.map(a => `
-    <div class="albumCard">
-      <img src="${a.image || 'placeholder.jpg'}" alt="${a.name}" class="albumCover">
-      <div class="albumInfo">
-        <p class="albumTitle">${a.name}</p>
-        <p class="albumArtist">${a.artists}</p>
-        <a href="${a.link}" target="_blank" class="albumLink">Open in Spotify</a>
-      </div>
-    </div>
-  `).join("");
-}
-
 // Display most listened album
 function displayMostListened(album) {
   const container = document.getElementById("mostListened");
@@ -103,5 +140,5 @@ function displayMostListened(album) {
   `;
 }
 
-
 window.addEventListener("DOMContentLoaded", loadDashboardData);
+
