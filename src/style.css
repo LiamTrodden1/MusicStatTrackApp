@@ -84,7 +84,6 @@ body {
   transition: transform 0.3s ease;
   z-index: 2;
 }
-
 .recentAlbumsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -155,8 +154,9 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  padding: 25px 35px;
+  padding: 35px 25px;
   transition: transform 0.3s ease;
+  width: 35%;
 }
 .statBox:hover {
   transform: translateY(-5px);
@@ -164,62 +164,67 @@ body {
 .statBox h3 {
   color: teal;
   margin-bottom: 10px;
+  font-size: 2rem;
 }
 .statBox p {
   font-size: 2.5rem;
-  font-weight: 700;
+  padding: 10px;
+  font-weight: bold;
   color: orange;
-  margin: 0;
 }
 
+
 /* Most Listened to */
-.mostListenedCard {
+#mostListened {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0px;
+}
+.albumCard.highlight {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(135deg, teal, orange);
-  color: white;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-  max-width: 320px;
-  margin: 0 auto 40px;
+  background: linear-gradient(145deg, #ffffff, #f4f9f9);
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 128, 128, 0.2);
+  width: 35%;
+  transition: all 0.3s ease;
+  padding: 20px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.mostListenedCard img {
-  width: 220px;
-  height: 220px;
-  border-radius: 12px;
-  border: 3px solid white;
-  object-fit: cover;
-  margin-bottom: 15px;
+.albumCard.highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(120deg, orange, teal);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: glowRotate 4s linear infinite;
 }
-.mostListenedCard h3 {
-  font-size: 1.4rem;
-  margin-bottom: 6px;
-}
-.mostListenedCard p {
-  margin: 4px 0;
-}
-.mostListenedCard .count {
+.albumTitle {
+  font-size: 1.3rem;
   font-weight: 700;
-  color: #fff9;
+  color: teal;
+}
+.albumArtist {
+  color: gray;
+  font-size: 1rem;
+}
+.albumCount {
+  font-weight: bold;
+  color: orange;
+  font-size: 1rem;
+  margin-top: 5px;
 }
 
-.spotifyLink {
-  display: inline-block;
-  margin-top: 10px;
-  background: white;
-  color: teal;
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-.spotifyLink:hover {
-  background: #f0f0f0;
-}
 
 
 /* Albums.html */
