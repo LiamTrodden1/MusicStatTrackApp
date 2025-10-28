@@ -11,6 +11,8 @@ h2 {
   margin-top: 20px;
 }
 
+
+
 /* Navigation Menu buttons */
 .navbar {
   position: fixed;
@@ -45,6 +47,80 @@ h2 {
 }
 .navList button:hover {
   background-color: orange;
+}
+
+
+
+/* flyout menu */
+.menuButton {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  font-family: 'Nunito', sans-serif;
+}
+
+.flyoutMenu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: teal;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid white;
+}
+.flyoutMenu.open {
+  left: 0;
+}
+.flyoutTitle {
+  font-family: 'Nunito', sans-serif;
+  color: white;
+  padding: 0px 0px 11px 0px;
+  font-style: normal;
+}
+.flyoutMenu a button {
+  background: teal;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  border: none;
+  padding: 15px 25px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.flyoutMenu ul li:first-child a button {
+  border-top: 2px solid white;
+}
+.flyoutMenu ul li:last-child a button {
+  border-bottom: 2px solid white;
+}
+.flyoutMenu a button:hover {
+  background-color: orange;
+}
+
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1005;
+}
+.menuOverlay.show {
+  opacity: 1;
+  pointer-events: all;
 }
 
 
