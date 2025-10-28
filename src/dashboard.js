@@ -82,6 +82,13 @@ function displayRecentAlbums(albums) {
       ]
     });
 
+    // Fade non-centred cards
+    $carousel.on("setPosition", function () {
+      const $slides = $(this).find(".slick-slide");
+      $slides.css("opacity", "0.4");
+      $(this).find(".slick-center").css("opacity", "1");
+    });
+
     // click on side albums to scroll
     $carousel.on("click", ".dashboardCard", function () {
       const index = $(this).data("slick-index");
@@ -123,7 +130,7 @@ async function loadDashboardData() {
       const bTime = b.lastListened?.seconds || 0;
       return bTime - aTime;
     });
-    const recent = sortedByDate.slice(0, 5);
+    const recent = sortedByDate.slice(0, 15);
     displayRecentAlbums(recent);
 
     // Most listened to album funtion call

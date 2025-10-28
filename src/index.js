@@ -60,6 +60,12 @@ loginButton.addEventListener("click", () => {
       return;
   }
 
+  // Cookies check
+  if (!cookieCheckbox || !cookieCheckbox.checked) {
+    alert("Please accept cookies before signing in.");
+    return;
+  }
+
   // submit to firebase
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -79,3 +85,5 @@ loginButton.addEventListener("click", () => {
   emailLogInput.value = "";
   passwordLogInput.value = "";
 })
+
+// Cookies

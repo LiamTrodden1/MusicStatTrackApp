@@ -1,40 +1,52 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <!-- Navigation Menu -->
   <nav class="navbar background">
-    <ul class="navList">
-    </ul>
+    <ul class="navList"></ul>
   </nav>
 
-  <!-- Enter Email -->
-   <h2>Sign In</h2>
-   <div class="emailLog">
-    <input type = "text" id="emailLogInput" placeholder="Enter Email ...">
-   </div>
+  <!-- Centered Login Container -->
+  <div class="loginContainer">
+    <h2>Sign In</h2>
 
-  <!-- Enter Password -->
-   <div class="passwordLog">
-    <input type="password" id="passwordLogInput" placeholder="Enter Password ...">
-   </div>
+    <!-- Email -->
+    <div class="emailLog">
+      <input type="text" id="emailLogInput" placeholder="Enter Email..." />
+    </div>
 
-  <!-- Submit Button -->
-   <div class="loginButton">
-    <button id="loginButton">Submit</button>
-   </div>
+    <!-- Password -->
+    <div class="passwordLog">
+      <input type="password" id="passwordLogInput" placeholder="Enter Password..." />
+    </div>
 
-  <!-- Navigate to Create Account -->
-   <div class="createAccountLink">
-    <a href="createAccount.html">Create an Account</a>
-   </div>
+    <!-- Submit Button -->
+    <div class="loginButton">
+      <button id="loginButton">Submit</button>
+    </div>
 
-   <script type= "module" src="index.js"></script>
+    <!-- Create Account Link -->
+    <div class="createAccountLink">
+      <a href="createAccount.html">Create an Account</a>
+    </div>
+
+    <!-- Cookie Consent Checkbox -->
+    <div id="cookiePopup" class="cookiePopup">
+      <label for="cookieCheckbox">
+        <input type="checkbox" id="cookieCheckbox" />
+        I agree to the use of cookies to improve my experience and keep me signed in.
+      </label>
+      <a href="/privacy-policy.html" target="_blank">Learn more</a>.
+    </div>
+
+
+  <script type="module" src="index.js"></script>
 </body>
-
 </html>
