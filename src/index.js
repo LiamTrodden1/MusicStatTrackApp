@@ -71,7 +71,6 @@ loginButton.addEventListener("click", () => {
     .then((userCredential) => {
       const user = userCredential.user;
       console.log("Login Successful");
-      console.log("UserID", user.uid);
       localStorage.setItem("loggedIn", "true");
       localStorage.setItem("userUID", user.uid);
       window.location.href = "dashboard.html";
@@ -86,4 +85,3 @@ loginButton.addEventListener("click", () => {
   passwordLogInput.value = "";
 })
 
-// Cookies
