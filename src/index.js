@@ -3,6 +3,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // Secrets secured in .env
@@ -20,6 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const db = getFirestore();
 
 // Sign user out
 try {
@@ -34,7 +36,7 @@ catch (error){
 }
 
 // submit details to login with firebase
-loginButton.addEventListener("click", () => {
+loginButton.addEventListener("click", async () => {
   // get values from textboxes
   const email = emailLogInput.value;
   const password = passwordLogInput.value;
@@ -49,7 +51,6 @@ loginButton.addEventListener("click", () => {
       alert("Please fill all fields");
       return;
   }
-
   // Confirm inputs fit the reg ex
   if (!emailRegEx.test(email)) {
       alert("Please Enter a Valid Email Address")
@@ -59,7 +60,6 @@ loginButton.addEventListener("click", () => {
       alert("Please Enter a Valid Password")
       return;
   }
-
   // Cookies check
   if (!cookieCheckbox || !cookieCheckbox.checked) {
     alert("Please accept cookies before signing in.");
@@ -73,6 +73,8 @@ loginButton.addEventListener("click", () => {
       console.log("Login Successful");
       localStorage.setItem("loggedIn", "true");
       localStorage.setItem("userUID", user.uid);
+
+      // direct to dashboard
       window.location.href = "dashboard.html";
     })
     .catch((error) => {
