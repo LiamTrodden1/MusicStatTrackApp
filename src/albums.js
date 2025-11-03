@@ -144,6 +144,7 @@ searchInput.addEventListener("keydown", async (event) => {
                     await setDoc(albumStore, {
                         ...albumInfo,
                         listenCount:1,
+                        firstListen: serverTimestamp(),
                         lastListened: serverTimestamp()
                     });
                     console.log("New album stored")

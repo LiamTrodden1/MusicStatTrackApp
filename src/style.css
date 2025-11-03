@@ -914,3 +914,56 @@ body {
 .LoginLink a:hover {
   color: orange;
 }
+
+/* stats.html */
+.totalListeningStats,
+.timeBasedStats,
+.albumStatsTitle,
+.milestones {
+    font-size: 2rem;
+    font-weight: 600;
+    color: teal;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 3px solid orange;
+    display: block;
+    padding-bottom: 6px;
+    margin: 20px auto;
+    text-align: center;
+    max-width: fit-content;
+}
+
+.timeStats,
+.albumStats,
+.milestoneStats {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin: 40px auto;
+}
+
+
+
+/* Badges */
+.badgeContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.badgeContainer img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.badgeUnlocked:hover {
+  transform: scale(1.1);
+}
+.badgeLocked {
+  opacity: 0.4;
+  filter: grayscale(80%);
+}
+
+

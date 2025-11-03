@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Stats</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="navbar background">
+      <ul class="navList">
+        <li><button id="menuToggle" class="menuButton"> Menu </button></li>
+        <li><a href="dashboard.html"><button> Dashboard </button></a></li>
+        <li><a href="albums.html"><button> Albums </button></a></li>
+        <li><a href="stats.html"><button> Your Stats </button></a></li>
+      </ul>
+    </nav>
+
+    <!-- Flyout Menu -->
+    <div id="flyoutMenu" class="flyoutMenu">
+      <h2 class="flyoutTitle">Menu</h2>
+      <ul>
+        <li><a href="dashboard.html"><button> Dashboard </button></a></li>
+        <li><a href="settings.html"><button> Settings </button></a></li>
+        <li><a href="login.html"><button> Logout </button></a></li>
+      </ul>
+    </div>
+    <!-- Overlay and darken background when menu open -->
+    <div id="menuOverlay" class="menuOverlay"></div>
+
+  <!-- Total listens -->
+    <h2 class="totalListeningStats">Total Listening Stats</h2>
+    <div class="stats">
+      <div class="statBox">
+        <h3>Total Albums</h3>
+        <p id="totalAlbums">0</p>
+      </div>
+      <div class="statBox">
+        <h3>Total Listens</h3>
+        <p id="totalListens">0</p>
+      </div>
+      <div class="statBox">
+        <h3>Total Artists</h3>
+        <p id="totalArtists">0</p>
+      </div> 
+      <div class="statBox">
+        <h3>Average Number Of Tracks</h3>
+        <p id="averageTracks">0</p>
+      </div>
+    </div>
+
+    <h2 class="timeBasedStats">Time Based Stats</h2>
+    <div class="timeStats">
+      <div class="statBox">
+        <h3>Most Active Day</h3>
+        <p id="mostActiveDay">Loading...</p>
+      </div>
+      <div class="statBox">
+        <h3>Most Active Weekday</h3>
+        <p id="mostActiveWeekday">Loading...</p>
+      </div>
+      <div class="statBox">
+        <h3>Longest Listening Streak</h3>
+        <p id="longestStreak">Loading...</p>
+      </div>
+      <div class="statBox">
+        <h3>Average Amount of Albums per Day</h3>
+        <p id="avgListensPerDay">Loading...</p>
+      </div>
+      <div class="statBox">
+        <h3>Most Active Hour</h3>
+      <p id="mostActiveHour">Loading...</p>
+      </div>
+      <div class="statBox">
+        <h3>First/Last Day Listened</h3>
+        <p id="listeningRange">Loading...</p>
+      </div>
+    </div>
+
+    <h2 class="albumStatsTitle">Album Stats</h2>
+    <div class="albumStats">
+      <div class="statBox">
+        <h3>Most Replayed Album</h3>
+        <p id="mostReplayed">0</p>
+      </div>
+    </div>
+
+    <h2 class="milestones">Milestones</h2>
+    <div class="milestoneStats">
+      <div class="statBox">
+        <h3>Amount of Listens</h3>
+        <p id="amountListens">0</p>
+      </div>
+      <div class="statBox">
+        <h3>Amount of Artists</h3>
+        <p id="amountArtists">0</p>
+      </div>
+      <div class="statBox">
+        <h3>Albums Discovered This Month</h3>
+        <p id="discoveredPerMonth">0</p>
+      </div>
+    </div>
+
+    <script type="module" src="stats.js"></script>
+  </body>
+
+</html>

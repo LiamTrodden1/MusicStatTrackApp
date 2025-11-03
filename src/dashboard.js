@@ -156,7 +156,7 @@ function displayMostListened(album) {
     return;
   }
 
-  // display most listened to albun
+  // display most listened to album
   container.innerHTML = `
     <div class="albumCard highlight">
       <img src="${album.image || 'placeholder.jpg'}" alt="${album.name}" class="albumCover">
