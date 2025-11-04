@@ -2,11 +2,22 @@
 <html>
 
 <head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.body.className = savedTheme;
+      }
+    });
+  </script>
+
   <title>Stats</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
   <body>
+    <!-- place it here ??? -->
+
     <!-- Navigation Menu -->
     <nav class="navbar background">
       <ul class="navList">

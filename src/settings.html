@@ -4,6 +4,15 @@
 <head>
   <title>Settings</title>
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme) {
+        document.body.className = savedTheme; 
+      }
+    });
+  </script>
 </head>
 
 <body>
@@ -28,6 +37,32 @@
    </div>
    <!-- Overlay and darken background when menu open -->
   <div id="menuOverlay" class="menuOverlay"></div>
+
+  <!-- Change Theme -->
+   <h2 class="changeThemeTitle">Change Theme</h2>
+   <div class="changeThemeContainer">
+    <select id="themeSelect">
+      <option value="themeLight">Light</option>
+      <option value="themeDark">Dark</option>
+      <option value="themeSunset">Sunset</option>
+      <option value="themeOcean">Ocean</option>
+    </select>
+   </div>
+
+  <!-- Account Info -->
+   <h2 class="accountInfoTitle">Account Information</h2>
+
+  <!-- Profile Info -->
+   <h2 class="profileInfoTitle">Profile Information</h2>
+
+  <!-- Download Stats -->
+   <h2 class="downloadStatsTitle">Download Stats</h2>
+
+  <!-- Clear All Data -->
+   <h2 class="clearAllTitle">Clear All Data</h2>
+  
+  <!-- Logout -->
+   <h2 class="logoutTitle">Logout</h2>
 
   <script type="module" src="settings.js"></script>
 </body>

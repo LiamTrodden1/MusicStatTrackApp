@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 // Firebase config
@@ -16,6 +16,30 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
+
+// apply users theme
+async function loadAndApplyTheme() {
+  const userUID = localStorage.getItem("userUID");
+  if (!userUID) return;
+
+  try {
+    const userRef = doc(db, "users", userUID);
+    const userSnap = await getDoc(userRef);
+
+    let themeName = "theme-light"; // default fallback
+    if (userSnap.exists() && userSnap.data().theme) {
+      themeName = userSnap.data().theme; // e.g. "theme-dark", "theme-sunset"
+    }
+
+    // Apply the theme immediately
+    document.body.className = themeName;
+
+    // Cache locally for speed
+    localStorage.setItem("theme", themeName);
+  } catch (err) {
+    console.error("Error loading theme:", err);
+  }
+}
 
 // Redirect if not logged in
 if (localStorage.getItem("loggedIn") !== "true") {
@@ -171,5 +195,8 @@ function displayMostListened(album) {
 }
 
 // load functions on page open
-window.addEventListener("DOMContentLoaded", loadDashboardData);
+window.addEventListener("DOMContentLoaded", async () => {
+  await loadAndApplyTheme();
+  loadDashboardData();
+});
 
