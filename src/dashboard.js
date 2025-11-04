@@ -26,7 +26,7 @@ async function loadAndApplyTheme() {
     const userRef = doc(db, "users", userUID);
     const userSnap = await getDoc(userRef);
 
-    let themeName = "theme-light"; // default fallback
+    let themeName = "themeLight"; // default fallback
     if (userSnap.exists() && userSnap.data().theme) {
       themeName = userSnap.data().theme; // e.g. "theme-dark", "theme-sunset"
     }
