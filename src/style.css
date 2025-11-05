@@ -1046,3 +1046,96 @@ body {
     max-width: fit-content;
 }
 
+/* Change Theme */
+.changeThemeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+#themeSelect {
+  background-color: var(--primaryColour);
+  color: var(--primaryTextColour);
+  border: 2px solid var(--borderColour);
+  border-radius: 12px;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  outline: none;
+  width: 300px;
+}
+#themeSelect:hover {
+  border-color: var(--secondaryColour);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Account Information */
+.accountInfoContainer {
+  justify-content: center;
+  align-items: center;
+  display: column;
+}
+.emailChange,
+.passwordChange,
+.emailChangeButton,
+.passwordChangeButton {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  margin-top: 20px;
+}
+#emailChangeInput,
+#passwordChangeInput{
+  width: 400px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+  transition: all 0.18s ease;
+  font-family: 'Nunito', sans-serif;
+  outline: none;
+}
+#emailChangeButton,
+#passwordChangeButton{
+  background-color: var(--primaryColour);
+  color: white;
+  padding: 5px 10px;
+  width: 425px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s ease;
+}
+#createButton:active{
+  background-color: orange;
+}
+#createButton.flash{
+  background-color: orange;
+  transition: 0.5s;
+}
+
+
+/* Logout */
+.logoutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;     
+}
+.logoutBtn {
+  background: var(--primaryColour);
+  color: var(--primaryTextColour);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 60px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.logoutBtn:hover {
+  border-color: var(--secondaryColour);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}

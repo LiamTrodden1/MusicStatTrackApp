@@ -52,6 +52,24 @@
 
   <!-- Account Info -->
    <h2 class="accountInfoTitle">Account Information</h2>
+   <div class="accountInfoContainer">
+    <!-- Change Email -->
+    <div class="emailChange">
+      <input type = "text" id="emailChangeInput" placeholder="Enter New Email Address ...">
+    </div>
+    <!-- Email Button -->
+    <div class="emailChangeButton">
+      <button id="emailChangeButton">Submit</button>
+    </div>
+    <!-- Change Password -->
+    <div class="passwordChange">
+      <input type = "password" id="passwordChangeInput" placeholder="Enter New Password ...">
+    </div>
+    <!-- Password Button -->
+    <div class="passwordChangeButton">
+      <button id="passwordChangeButton">Submit</button>
+    </div>
+   </div>
 
   <!-- Profile Info -->
    <h2 class="profileInfoTitle">Profile Information</h2>
@@ -63,7 +81,9 @@
    <h2 class="clearAllTitle">Clear All Data</h2>
   
   <!-- Logout -->
-   <h2 class="logoutTitle">Logout</h2>
+   <div class="logoutContainer">
+    <a href="login.html"><button class="logoutBtn"> Logout </button></a>
+   </div>
 
   <script type="module" src="settings.js"></script>
 </body>
