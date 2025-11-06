@@ -75,7 +75,12 @@ loginButton.addEventListener("click", async () => {
       localStorage.setItem("userUID", user.uid);
 
       // direct to dashboard
-      window.location.href = "dashboard.html";
+      if (localStorage.getItem("redirectAfterLogin") == "/settings.html") {
+        window.location.href = "settings.html";
+      }
+      else {
+        window.location.href = "dashboard.html";
+      }
     })
     .catch((error) => {
       alert("Account not Found");

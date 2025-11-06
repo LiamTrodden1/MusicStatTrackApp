@@ -1046,6 +1046,83 @@ body {
     max-width: fit-content;
 }
 
+
+
+/* Profile Info */
+.profileInfoContainer {
+  background: var(--primaryColour);
+  border: 2px var(--secondaryColour);
+  border-radius: 1.5rem;
+  padding: 1.5rem 2rem;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+  max-width: 860px;
+  margin: 0 auto;
+  color: var(--primaryTextColour);
+  transition: all 0.3s ease-in-out;
+  margin-top: 30px;
+}
+.profileInfoContainer:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+.profileInfoContainer p {
+  font-size: 1.1rem;
+  margin: 0.8rem 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+.profileInfoContainer p:hover {
+  background: var(--secondaryColour);
+}
+.profileInfoContainer span {
+  font-weight: 600;
+  color: var(--primaryTextColour);
+  text-shadow: 0 0 8px var(--secondaryColour);
+}
+
+
+
+/* Logout */
+.extrasContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;  
+  gap: 50px;   
+}
+/* DownloadStats */
+#downloadStatsButton {
+  background: var(--secondaryColour);
+  color: var(--primaryTextColour);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 131px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.downloadButton:hover {
+  border-color: var(--primaryColour);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}
+.logoutBtn {
+  background: var(--secondaryColour);
+  color: var(--primaryTextColour);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 145px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.logoutBtn:hover {
+  border-color: var(--primaryColour);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}
+
+
 /* Change Theme */
 .changeThemeContainer {
   display: flex;
@@ -1072,23 +1149,34 @@ body {
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
 }
 
+
+
 /* Account Information */
 .accountInfoContainer {
   justify-content: center;
   align-items: center;
-  display: column;
+  display: flex;
+  flex-direction: column;
 }
 .emailChange,
-.passwordChange,
+.passwordChange {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  gap: 10px;
+}
 .emailChangeButton,
 .passwordChangeButton {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: left;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 #emailChangeInput,
-#passwordChangeInput{
+#emailConfirmChangeInput,
+#passwordConfirmChangeInput{
   width: 400px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -1096,17 +1184,24 @@ body {
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
   transition: all 0.18s ease;
   font-family: 'Nunito', sans-serif;
-  outline: none;
+}
+#passwordChangeInput{
+  margin-top: 20px;
+  width: 400px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+  transition: all 0.18s ease;
+  font-family: 'Nunito', sans-serif;
 }
 #emailChangeButton,
 #passwordChangeButton{
   background-color: var(--primaryColour);
   color: white;
-  padding: 5px 10px;
   width: 425px;
   padding: 10px 12px;
   border-radius: 8px;
-  border: none;
   transition: all 0.3s ease;
 }
 #createButton:active{
@@ -1118,24 +1213,28 @@ body {
 }
 
 
-/* Logout */
-.logoutContainer {
+
+/* Clear All */
+.clearAllContainer {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-top: 2rem;     
+  justify-content: center;
+  margin-top: 70px;
 }
-.logoutBtn {
-  background: var(--primaryColour);
-  color: var(--primaryTextColour);
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 12px 60px;
-  border-radius: 40px;
+.dangerBtn {
+  background-color: #ff4d4f; /* red */
+  color: white;
+  font-weight: bold;
+  padding: 12px 152px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
-.logoutBtn:hover {
-  border-color: var(--secondaryColour);
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+.dangerBtn:hover {
+  background-color: #ff7875;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255,0,0,0.5);
 }
+
+
