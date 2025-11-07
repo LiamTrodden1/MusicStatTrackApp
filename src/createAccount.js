@@ -1,8 +1,7 @@
 // Firebase setup
-// Import firebase nodules
+// Import firebase modules
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth} from "firebase/auth";
 
 // Your web app's Firebase configuration
 // Secrets secured in .env
@@ -19,7 +18,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
 // Submit details to firebase for account creation

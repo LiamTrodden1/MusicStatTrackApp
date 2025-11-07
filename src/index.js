@@ -3,7 +3,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { getFirestore} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // Secrets secured in .env
@@ -19,15 +19,12 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
-const db = getFirestore();
 
 // Sign user out
 try {
   await signOut(auth);
   console.log("User logged out successfully");
-  const loggedIn = "false";
   localStorage.setItem("loggedIn", "false");
   localStorage.removeItem("userUID");
 }

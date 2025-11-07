@@ -40,13 +40,14 @@ menuOverlay.addEventListener("click", () => {
 });
 
 // inputs
-const searchButton = document.getElementById("searchButton1");
 const searchInput = document.getElementById("searchInput1");
 const resultsContainer = document.getElementById("albumResults");
 
 // Search when Enter is pressed
 searchInput.addEventListener("keydown", async (event) => {
-  if (event.key !== "Enter") return;
+  if (event.key !== "Enter") {
+    return;
+  }
 
   const albumName = searchInput.value.trim();
   if (!albumName) {
@@ -116,8 +117,6 @@ searchInput.addEventListener("keydown", async (event) => {
         const addButton = albumDiv.querySelector(".addButton");
         addButton.addEventListener("click", async (event) => {
             event.stopPropagation();
-            console.log(`Album added: ${albumInfo.name} by ${albumInfo.artists}`);
-            console.log("albumID", albumInfo.id);
 
             // get logged in user id
             const userUID = localStorage.getItem("userUID");

@@ -400,7 +400,6 @@ body {
   font-size: 2rem;
   font-weight: 800;
   color: var(--primaryColour);
-  letter-spacing: 0.5px;
   text-transform: uppercase;
   border-bottom: 3px solid var(--secondaryColour);
   display: inline-block;
@@ -433,22 +432,6 @@ body {
   box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
   outline: none;
 }
-#searchButton1 {
-  right: 153px;
-  position: absolute;
-  height: 100%;
-  background-color: var(--primaryColour);
-  color: var(--primaryTextColour);
-  border: none;
-  border-radius: 0 8px 8px 0;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-#searchButton1:hover {
-  background-color: var(--secondaryColour);
-}
 
 /* ================Organising Search Results================ */
 /* Placeholder Result */
@@ -463,12 +446,10 @@ body {
   transition: none;
   margin: 0 auto;
 }
-
 .album.placeholder img {
   filter: grayscale(100%) brightness(95%);
   box-shadow: none;
 }
-
 .album.placeholder h3,
 .album.placeholder p {
   color: #555;
@@ -491,7 +472,7 @@ body {
   z-index: 1;
 }
 
-
+/* album cards */
 .album {
   cursor: pointer;
   display: flex;
@@ -513,7 +494,6 @@ body {
 .album:hover {
   box-shadow: 0 12px 20px rgba(0,0,0,0.25);
 }
-
 .album img {
   border-radius: 10px;
   width: 200px;
@@ -522,20 +502,16 @@ body {
   margin-right: 20px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
-
-/* ===Organising Text Info on right=== */
 .album h3 {
   margin: 0 0 8px;
   font-size: 1.4em;
   color: var(--secondaryTextColour);
 }
-/* Titles colours */
 .album p {
   margin: 4px 0;
   color: var(--secondaryTextColour);
   line-height: 1.3;
 }
-/* Album link */
 .album a {
   display: inline-block;
   margin-top: 10px;
@@ -549,7 +525,6 @@ body {
      1px  1px 0 #000;
 }
 
-/* Add album button */
 .album .addButton {
   position: absolute;
   top: 0;
@@ -596,7 +571,6 @@ body {
     box-shadow: 0 0 0px rgba(0, 255, 0, 0);
   }
 }
-
 .album.added {
   animation: addedPulse 0.5s ease;
 }

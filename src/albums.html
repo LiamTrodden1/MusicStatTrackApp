@@ -3,6 +3,7 @@
 
 <head>
   <script>
+    // load theme
     document.addEventListener("DOMContentLoaded", () => {
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme) {
@@ -37,19 +38,18 @@
    </div>
    <!-- Overlay and darken background when menu open -->
   <div id="menuOverlay" class="menuOverlay"></div>
-
+  <!-- Tabs for navigation -->
   <div class="collectionNav">
   <a href="albums.html" class="tab active">Add Albums</a>
   <a href="myAlbums.html" class="tab">My Albums</a>
 </div>
 
   <!-- Search for album -->
-   <section class="searchAlbum">
-    <h2 class="pageTitle"> Add An Album You've Listened To </h2>
-    <div class="search1">
-      <input type = "text" id="searchInput1" placeholder="Enter the album title ...">
-      <!-- <button id="searchButton1">Submit</button> -->
-    </div>
+  <section class="searchAlbum">
+  <h2 class="pageTitle"> Add An Album You've Listened To </h2>
+  <div class="search1">
+    <input type = "text" id="searchInput1" placeholder="Enter the album title ...">
+  </div>
 
   <!-- Results of search -->
   <section id="albumResults" class="albumResults">

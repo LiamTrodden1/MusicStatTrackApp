@@ -289,7 +289,7 @@ clearAllButton.addEventListener("click", async () => {
   }
 
   // Confirm action
-  const confirmed = confirm("⚠️ This will permanently delete ALL your data. Are you sure?");
+  const confirmed = confirm("This will permanently delete ALL your data. Are you sure?");
   if (!confirmed) return;
 
   try {
@@ -312,8 +312,6 @@ clearAllButton.addEventListener("click", async () => {
     alert("Failed to delete data. Please try again.");
   }
 });
-
-// logout
 
 window.addEventListener("DOMContentLoaded", () => {
   setupThemeSelector();

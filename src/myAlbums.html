@@ -3,6 +3,7 @@
 
 <head>
   <script>
+    // load theme 
     document.addEventListener("DOMContentLoaded", () => {
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme) {
@@ -37,6 +38,7 @@
    <!-- Overlay and darken background when menu open -->
   <div id="menuOverlay" class="menuOverlay"></div>
 
+   <!-- tabe menu between albums pages -->
     <div class="collectionNav">
         <a href="albums.html" class="tab">Add Albums</a>
         <a href="myAlbums.html" class="tab active">My Albums</a>
@@ -45,7 +47,8 @@
     <h2 class="myAlbumsTitle"> My Albums I've Listened to</h2>
 
     <div class="albumContainer">
-        <p class="loading">Loading your albums...</p>
+      <!-- Albums Empty -->
+      <p class="loading">Loading your albums...</p>
     </div>
 
     <script type= "module" src="myAlbums.js"></script>
