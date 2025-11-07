@@ -65,6 +65,21 @@ menuOverlay.addEventListener("click", () => {
 function displayRecentAlbums(albums) {
   const container = document.getElementById("recentAlbums");
 
+  // No albums added
+  if (!albums || albums.length === 0) {
+    container.innerHTML = `
+      <div class="emptyState">
+        <img src="images/noALbumArt.png" alt="No albums illustration" class="emptyIcon">
+        <h3>Nothing here yet</h3>
+        <p>Add your first album to start tracking your music journey.</p>
+        <a href="albums.html" class="emptyButton">
+          <i class="fa-solid fa-plus"></i> Add Album
+        </a>
+      </div>
+    `;
+    return;
+  }
+
   // if no albums found
   if (!albums || albums.length === 0) {
     container.innerHTML = "<p style='text-align:center;color:gray;'>No recent albums yet</p>";
@@ -173,6 +188,20 @@ async function loadDashboardData() {
 // Display most listened album
 function displayMostListened(album) {
   const container = document.getElementById("mostListened");
+
+  // No album most listened to
+  if (!album.name) {
+    container.innerHTML = `
+      <div class="albumCard highlight emptyMostListened">
+        <img src="images/trophy.png" alt="Trophy" class="trophyPlaceholder">
+        <div class="albumInfo">
+          <p class="albumTitle">Your Top Album Awaits</p>
+          <p class="albumArtist">Listen to some albums to unlock this spot!</p>
+        </div>
+      </div>
+    `;
+    return;
+  }
 
   // no album data found
   if (!album.name) {

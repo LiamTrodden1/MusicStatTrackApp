@@ -235,6 +235,64 @@ body {
     background-size: cover;
 }
 
+/* No albums added */
+.emptyState {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 20px;
+  color: var(--secondaryTextColour);
+  margin: 0px auto;
+  height: 250px;
+  width: 670px;
+}
+
+/* Background Image fills container */
+.emptyIcon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+.emptyState h3,
+.emptyState p,
+.emptyButton {
+  position: relative;
+  z-index: 1;
+}
+.emptyState h3 {
+  color: var(--primaryColour);
+  font-size: 1.8rem;
+  margin: 10px 0 8px;
+}
+.emptyState p {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 18px;
+  max-width: 80%;
+}
+.emptyButton {
+  background: var(--secondaryColour);
+  color: var(--primaryTextColour);
+  padding: 12px 75px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+.emptyButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+
 /* recently listened to carousel */
 .slick-center .dashboardCard {
   transform: scale(1.1);
@@ -335,6 +393,42 @@ body {
 
 
 /* Most Listened to */
+/* 🏆 Empty "Most Listened" Trophy Card */
+.emptyMostListened {
+  background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(240,240,240,0.85));
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.trophyPlaceholder {
+  width: 140px;
+  height: auto;
+  opacity: 0.8;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+  margin-bottom: 15px;
+  animation: floatTrophy 4s ease-in-out infinite;
+}
+
+.emptyMostListened .albumInfo {
+  text-align: center;
+}
+
+.emptyMostListened .albumTitle {
+  color: var(--primaryColour);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.emptyMostListened .albumArtist {
+  color: gray;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+
 #mostListened {
   display: flex;
   align-items: center;
@@ -613,6 +707,56 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
     padding: 20px;
+}
+
+/* Loading Albums */
+.loadingState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0;
+    color: #777;
+    font-weight: 500;
+}
+.loadingSpinner {
+    border: 4px solid rgba(0,0,0,0.1);
+    border-top: 4px solid var(--secondaryColour);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.9s linear infinite;
+    margin-bottom: 15px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* No albums available */
+.emptyAlbums {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 160px;
+    color: var(--primaryTextColour);
+    background-color: var(--primaryBgColour, transparent);
+    border: 2px dashed var(--secondaryColour);
+    border-radius: 16px;
+    margin: 0px auto;
+    max-width: 400px;
+}
+.emptyText {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primaryColour);
+    margin-bottom: 6px;
+}
+.emptySub {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 500;
 }
 
 .myAlbumsTitle {

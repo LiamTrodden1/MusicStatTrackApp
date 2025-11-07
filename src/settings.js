@@ -145,6 +145,9 @@ emailChangeButton.addEventListener("click", async () => {
         window.location.href = "login.html";
         return;
       } 
+      else if (error.code === "auth/email-already-in-use") {
+        alert("That email is already associated with another account. Please use a different one.");
+      } 
       else {
         alert("Failed to update email: " + error.message);
       }

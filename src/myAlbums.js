@@ -77,6 +77,14 @@ const albumContainer = document.querySelector(".albumContainer");
 
 async function getAlbums() {
     try {
+        // loading Albums
+        albumContainer.innerHTML = `
+            <div class="loadingState">
+                <div class="loadingSpinner"></div>
+                <p>Loading your albums...</p>
+            </div>
+        `;
+
         // check userID from local storage
         const userID = localStorage.getItem("userUID");
         if (!userID) {
@@ -91,7 +99,12 @@ async function getAlbums() {
         // clear albums and display loading albums message
         albumContainer.innerHTML = "";
         if (snapshot.empty) {
-            albumContainer.innerHTML = "<p>Loading Albums ...</p>";
+            albumContainer.innerHTML = `
+                <div class="emptyAlbums">
+                    <p class="emptyText">No albums yet</p>
+                    <p class="emptySub">Start listening to add your first one!</p>
+                </div>
+            `;
             return;
         }
 
