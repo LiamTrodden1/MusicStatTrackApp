@@ -56,12 +56,10 @@ createButton.addEventListener("click", () => {
     // Submit Details
     createUserWithEmailAndPassword(auth, email, password)
         .then((userCredentials) => {
-            console.log("Account Successfully Created");
-            window.location.href = "login.html";
+            window.location.href = "index.html";
         })
         .catch((error) => {
-            alert("Error Creating Account")
-            console.log("Account Creation Failed")
+            alert("Error Creating Account");
         })
 
     // clear inputs

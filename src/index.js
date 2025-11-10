@@ -76,7 +76,6 @@ loginButton.addEventListener("click", async () => {
     })
     .catch((error) => {
       alert("Account not Found");
-      console.log("Login Failed");
     }) 
 
   // Clear inputs
